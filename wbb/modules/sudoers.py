@@ -29,7 +29,7 @@ from time import time
 from psutil import Process, cpu_percent, disk_usage, virtual_memory
 from pyrogram import filters
 from pyrogram.errors import FloodWait
-from wbb import (BOT_ID, GBAN_LOG_GROUP_ID, SUDOERS, USERBOT_USERNAME, app,
+from wbb import (BOT_ID, GBAN_LOG_GROUP_ID, SUDOERS, USERBOT_USERNAME, BOT_USERNAME, app,
                  bot_start_time)
 from wbb.core.decorators.errors import capture_err
 from wbb.utils import formatter
@@ -66,7 +66,7 @@ async def bot_sys_stats():
     disk = disk_usage("/").percent
     process = Process(getpid())
     return f"""
-{USERBOT_USERNAME}@William
+{USERBOT_USERNAME}@{BOT_USERNAME}
 ------------------
 UPTIME: {formatter.get_readable_time(bot_uptime)}
 BOT: {round(process.memory_info()[0] / 1024**2)} MB
